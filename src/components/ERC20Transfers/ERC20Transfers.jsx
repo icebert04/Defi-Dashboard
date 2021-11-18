@@ -5,11 +5,13 @@ import "antd/dist/antd.css";
 import { Skeleton, Table } from "antd";
 import styles from "./styles";
 import { useERC20Transfers } from "hooks/useERC20Transfers";
+import web3 from "web3";
 
 function ERC20Transfers() {
   const { ERC20Transfers, chainId } = useERC20Transfers();
   const { Moralis } = useMoralis();
-
+  var receipt = web3.eth.getTransactionReceipt('0x9fc76417374aa880d4449a1f7f31ec597f00b1f6f3dd2d66f4c9c6c445836d8b');
+  console.log(receipt);
   const columns = [
     {
       title: "Token",

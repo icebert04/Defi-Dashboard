@@ -9,12 +9,11 @@ import {
 } from "react-router-dom";
 import Account from "components/Account";
 import Chains from "components/Chains";
-import TokenPrice from "components/TokenPrice";
-import ERC20Balance from "components/ERC20Balance";
+import WalletBalance from "components/WalletBalance";
 import ERC20Transfers from "components/ERC20Transfers";
 import NFTBalance from "components/NFTBalance";
 import Wallet from "components/Wallet";
-import { Menu, Layout } from "antd";
+import { Layout } from "antd";
 import "antd/dist/antd.css";
 import NativeBalance from "components/NativeBalance";
 import "./style.css";
@@ -28,13 +27,13 @@ const styles = {
     justifyContent: "center",
     fontFamily: "Roboto, sans-serif",
     marginTop: "100px",
-    color: "#ffffff",
+    color: "#000000",
   },
   header: {
     position: "fixed",
     zIndex: 1,
     width: "100%",
-    background: "#a30000",
+    background: "#b61111",
     color: "#ffffff",
     display: "flex",
     justifyContent: "space-between",
@@ -65,37 +64,36 @@ const App = ({ isServerInfo }) => {
     <Layout style={{ height: "100vh", overflow: "auto" }}>
       <Router>
         <Header style={styles.header}>
-          <Logo />
-          <Menu
-            theme="dark"
-            mode="inline"
+          {/* <Logo /> */}
+          <div
             style={{
               display: "flex",
               fontSize: "18.5px",
               fontWeight: "500",
               width: "100%",
               justifyContent: "center",
-              background: "#a30000",
+              background: "#b61111",
               color: "#fffff",
             }}
-            defaultSelectedKeys={["quickstart"]}
           >
-            <Menu.Item key="wallet">
+          <ul className="nav">
+            <li key="wallet">
               <NavLink to="/wallet">👛 Wallet</NavLink>
-            </Menu.Item>
-            <Menu.Item key="balances">
-              <NavLink to="/erc20balance">💰 Balances</NavLink>
-            </Menu.Item>
-            <Menu.Item key="transfers">
+            </li>
+            <li key="balances">
+              <NavLink to="/walletbalance">💰 Balances</NavLink>
+            </li>
+            <li key="transfers">
               <NavLink to="/erc20transfers">💸 Transfers</NavLink>
-            </Menu.Item>
-            <Menu.Item key="nft">
+            </li>
+            <li key="nft">
               <NavLink to="/nftBalance">🖼 NFTs</NavLink>
-            </Menu.Item>
-            <Menu.Item key="contract">
+            </li>
+            <li key="contract">
               <NavLink to="/contract">📄 Contract</NavLink>
-            </Menu.Item>
-          </Menu>
+            </li>
+          </ul>
+          </div>
           <div style={styles.headerRight}>
             <Chains />
             {/* <TokenPrice
@@ -113,8 +111,8 @@ const App = ({ isServerInfo }) => {
             <Route path="/wallet">
               <Wallet />
             </Route>
-            <Route path="/erc20balance">
-              <ERC20Balance />
+            <Route path="/walletbalance">
+              <WalletBalance />
             </Route>
             <Route path="/erc20transfers">
               <ERC20Transfers />
@@ -133,28 +131,6 @@ const App = ({ isServerInfo }) => {
         </div>
       </Router>
       <Footer style={{ textAlign: "center" }}>
-
-        <Text style={{ display: "block" }}>
-          🙋 You have questions? Ask them on the {""}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://forum.moralis.io/t/ethereum-boilerplate-questions/3951/29"
-          >
-            Moralis forum
-          </a>
-        </Text>
-
-        <Text style={{ display: "block" }}>
-          📖 Read more about{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://moralis.io?utm_source=boilerplatehosted&utm_medium=todo&utm_campaign=ethereum-boilerplat"
-          >
-            Moralis
-          </a>
-        </Text>
       </Footer>
     </Layout>
   );
