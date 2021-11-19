@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { useMoralis } from "react-moralis";
-import { Card, Image, Tooltip, Modal, Input } from "antd";
+import { Card, Image, Tooltip, Modal, Input, Layout } from "antd";
 import { useNFTBalance } from "hooks/useNFTBalance";
 import { FileSearchOutlined, SendOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { useMoralisDapp } from "providers/MoralisDappProvider/MoralisDappProvider";
 import { getExplorer } from "helpers/networks";
+import Text from "antd/lib/typography/Text";
 import AddressInput from "./AddressInput";
+
 
 import Sarangay from "../images/Sarangay.jpg";
 import Tikbalang from "../images/Tikbalang.jpg"
 
 const { Meta } = Card;
+const { Footer } = Layout;
+
 
 const styles = {
   NFTs: {
@@ -70,6 +74,7 @@ function NFTBalance() {
   console.log(NFTBalance);
   return (
     <>
+      <Layout>
       <div style={styles.NFTs}>
         {NFTBalance &&
           NFTBalance.map((nft, index) => (
@@ -154,7 +159,31 @@ function NFTBalance() {
             >
               <Meta title={'Tikbalang'} description={'0x495....7b5e'} />
             </Card>
-      </div>
+          </div>
+        <Footer style={{ textAlign: "center" }}>
+        <Text style={{ display: "block", fontSize: "20px" }}>
+            ✍️ NFT credit goes to {""}
+            <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://twitter.com/AswangNFT?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+            >
+            @AswangNFT
+          </a>
+        </Text>
+        <Text style={{ display: "block"}}>
+            🌊 Opensea {""}
+            <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://opensea.io/collection/aswang"
+            >
+            Aswang Collection
+          </a>
+        </Text>
+        </Footer>
+      
+      </Layout>
       <Modal
         title={`Transfer ${nftToSend?.name || "NFT"}`}
         visible={visible}

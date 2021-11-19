@@ -18,7 +18,10 @@ import "antd/dist/antd.css";
 import NativeBalance from "components/NativeBalance";
 import "./style.css";
 import Contract from "components/Contract/Contract";
-import Text from "antd/lib/typography/Text";
+import { BsBank2 } from "react-icons/bs"
+import { CgArrowsExchange } from "react-icons/cg"
+import { GiScrollQuill } from "react-icons/gi"
+import { FaWallet } from "react-icons/fa"
 const { Header, Footer } = Layout;
 
 const styles = {
@@ -78,19 +81,19 @@ const App = ({ isServerInfo }) => {
           >
           <ul className="nav">
             <li key="wallet">
-              <NavLink to="/wallet">👛 Wallet</NavLink>
+              <NavLink to="/wallet"><FaWallet/> Wallet</NavLink>
             </li>
             <li key="balances">
-              <NavLink to="/walletbalance">💰 Balances</NavLink>
+              <NavLink to="/walletbalance"><BsBank2/> Balances</NavLink>
             </li>
             <li key="transfers">
-              <NavLink to="/erc20transfers">💸 Transfers</NavLink>
+              <NavLink to="/erc20transfers"><CgArrowsExchange/> Transfers</NavLink>
             </li>
             <li key="nft">
               <NavLink to="/nftBalance">🖼 NFTs</NavLink>
             </li>
             <li key="contract">
-              <NavLink to="/contract">📄 Contract</NavLink>
+              <NavLink to="/contract"><GiScrollQuill/> Contract</NavLink>
             </li>
           </ul>
           </div>

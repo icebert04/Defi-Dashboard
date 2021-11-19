@@ -1,5 +1,6 @@
 import NativeBalance from "./NativeBalance";
-import Account from "./Account";
+import AccountLong from "./AccountLong";
+import { BsBank2 } from "react-icons/bs"
 
 const styles = {
   title: {
@@ -11,11 +12,11 @@ function WalletBalance() {
   return (
   <>
   <div>
-      <h1 style={styles.title}>💰Wallet Balances</h1>
+      <h1 style={styles.title}><BsBank2/> Wallet Balances</h1>
     <div className="walletBalance" >
         <table style={{ width: "65vw", padding: "15px" }}>
         <tr><th>Account</th><th>Amount</th></tr>
-        <tr><td><Account/></td><td><NativeBalance/></td></tr>
+        <tr><td><AccountLong/></td><td><NativeBalance/></td></tr>
         </table>
     </div>
   </div>
